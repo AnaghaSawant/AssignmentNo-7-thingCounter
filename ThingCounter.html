@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>thing counter</title>
+		<script type="text/javascript" src="js/ThingCounter.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ThingCounter.css"/	>
+	</head>
+	<body>
+		<div class="main">
+			<div class="top">
+				<header>
+					<h1>Active Counters</h1>
+				</header>
+			</div>
+			<div class="middle">
+				<button id="add" onclick="addForm()"> + </button>
+				<div id="form1">
+					<form onsubmit="myFunction()">
+	  					label:<br>
+	  					<input type="text" name="name" id="txt_"/>
+	  					<br>
+	  					color:<br>
+	  					<input type="color" name="clr" class="theme" id="clr_"/>
+	  					<br><br>
+	  					<input type="submit" value="save">
+					</form> 
+				</div>
+				<div id="btn-grp">
+					<input type="button" class="down" id="dec_" value="-" onclick="decreament()"/>
+					<input type="button" class="incdec" id="num_" value="0"/>
+					<input type="button" class="up" id="inc_" value="+" onclick="increament()" />
+				</div>
+				<div id="mylist">	</div>
+				<div id="mybutton"></div>
+			</div>
+		</div>
+	</body>
+</html>
