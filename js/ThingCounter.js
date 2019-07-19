@@ -6,28 +6,33 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		
 	var add = document.getElementById("addBtn");
 	var form = document.getElementById("AddForm");
+	var btngrp = document.getElementById("btnGrp");
 	add.style.display = "block";
 	form.style.display = "none";
 
 	this.displayForm = function(){
 		add.style.display = "none";
 		form.style.display = "block";
+		btngrp.style.display = "none";
 	} 
 
-	this.addButtons = function(){
+	this.addButtons = function(name,color){
 		var element1 = document.createElement("input");
 		element1.type = "button";
 		element1.value = "+";
 		element1.id = "inc_"+count;
 		element1.className = "increament";
+		element1.style.backgroundColor = color;
 		console.log(element1);
 
 
 		var element2 = document.createElement("input");
 		element2.type = "button";
-		element2.value = "0";
+		element2.value = "0" + " " +name;
 		element2.id = "num_"+count;
 		element2.className = "incdec";
+		console.log(document.getElementById("clr_0").value)
+		element2.style.backgroundColor = color;
 		console.log(element2);
 
 
@@ -36,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		element3.value = "-";
 		element3.id = "dec_"+count;
 		element3.className = "decreament";
+		element3.style.backgroundColor = color;	
 		console.log(element3);
 
 		var lineBreak = document.createElement("br");
@@ -45,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		console.log(items);
 	
 		form.style.display = "none";
+		btngrp.style.display = "block";
 		add.style.display = "block";
 
 		var classname = document.getElementsByClassName("decreament");
@@ -58,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		    	var res = decId.substring(4);
 		    	var dec = --items[res-1];
 		    	var num = document.getElementById("num_"+res);
-		    	num.value = dec;
+		    	num.value = dec + " " +name;
 			}
 		}
 
@@ -73,18 +80,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		    	var res = incId.substring(4);
 		    	var inc = ++items[res-1];
 		    	var num = document.getElementById("num_"+res);
-		    	num.value = inc;
+		    	num.value = inc + " " +name;
 			}
 		}
 	}
 
 	this.submitValue = function(){
-
+		var name = document.getElementById("lbl_0").value
+		var color = document.getElementById("clr_0").value
 		count++;
-		this.addButtons();
+		this.addButtons(name,color);
 	}
 
 });
 
-// when add new button then push its id to array then according to its index chnage value of middle button
-//when click on add button display form and take its txt and color and add it to buttons
